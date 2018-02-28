@@ -1,0 +1,40 @@
+{
+  "name": "@actano/karma-selenium-launcher",
+  "version": "1.0.0",
+  "description": "Karma launcher to run tests via Selenium",
+  "author": "Actano GmbH (https://rplan.com/)",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/actano/karma-selenium-launcher.git"
+  },
+  "files": [
+    "src",
+    "lib"
+  ],
+  "keywords": [
+    "karma-plugin",
+    "karma-launcher",
+    "selenium"
+  ],
+  "scripts": {
+    "prepublishOnly": "npm run clean && npm run ci && babel src --out-dir lib",
+    "ci": "npm run lint",
+    "lint": "eslint src",
+    "clean": "rm -rf lib"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.4.0",
+    "eslint": "^4.3.0",
+    "eslint-config-actano-base": "^2.1.0",
+    "eslint-plugin-import": "^2.7.0"
+  },
+  "dependencies": {
+    "selenium-webdriver": "^4.0.0-alpha.1"
+  }
+}
