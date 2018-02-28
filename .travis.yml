@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+- '8'
+cache: yarn
+env:
+  global:
+    secure: LuIMwKw+hGQ0cpVU+qsRK+KyGmqgGCnEBcKDhtLLWM1pZSLg5EBIL71aW2Y9WB8WGfqreSF2Gaqam3p5djNzCE8mWGAAjVDZ4EGmAQ+X4QwN5RXSTowvHWNg3hwihWxhoBS29aZyd9A97MO44T4HpN0/kvegLnYnfbyLOud9MbeM2FaF/qGgCu/G0Lkeqa+3KgmHQDylddz+GzJu4Of8c+/KVUmnDqUkJ8tP3WkO1j44qaE8CylWisxo0p+QeFPtHN6aTsi509IdPPjyb4LyxfqbsEwMYyiQzWamFeGY1Qtz9vf7W/33iT9R/HXwdc4yZZesKJyPLrEj7/kG61s3evW47r3nf0tvn86As8/EdrKo6+3Gr7mGn5A92WECamukRyjZGC+Y/VSrTyH6/+Bx7polE2FZn4b+AxME2OKKE8mIUowVHotGne5Odi+ieyOX2C6P0JwoE1jxsk2ROzDMxdrlm6yRlbiPrx2vUEzVX5VMVq6Vrwjd6JIWK6Z/T2V8TtAr24YYvdGqMtSsV+sc15ZqSYSUi6ojzdaqiL/UWKSxXaVJpvMM00wL6GmUDFJa6khRTysPv1gJZDCHj9h0avUmGdHKhuzWEWOJ2R6p3ZhFy03FY1vLZ8tRGyZR23o0z7M0Ij1BpehFMB09ASo01JEJpiLIB5kZew+cZU1d5m8=
+before_install: yarn global add greenkeeper-lockfile@1
+before_script: greenkeeper-lockfile-update
+script:
+- npm run ci
+after_script: greenkeeper-lockfile-upload
+deploy:
+  provider: npm
+  skip_cleanup: true
+  email: marcus.mennemeier@actano.de
+  api_key:
+    secure: urNL4aCrqUSEJNQTxR0W72IVXjyH4nsjl52RihGlai6eUFlYfcFWvtB8BCYTuVLsLagEGHvnCHn484+IzHwAYcpoOt4Js7N1vQOHZPipQrQ/fFhAsKs8CUgkSoZi0TMHjtob2qK7KDo8kajIt5FaQvaA2zNlbirZcjm8pHbXmctlVGV7zP5xE5fjZ5nfGPegCyzFm/0S6nJR0fOgLMZdvHATygbttla4lNjBHWti9c1soh7GstexTAToRsfktVq1EV74UuwbtwVL3coy6uLSoIRvoXhrxVs/SgStuqkfe9xstv6/ro7Ci5iUnvhye0nt16cmDQWjDppc15kFFYM5eADsM34Fg1vChL0GI6JSqxsOJiYlZGTwM6kYFBAff5OGVM8xjlGNzCCD5+RdezLwsgQgFwj/3mXhuK+d/JC1SLq0c0DVwZakwSDGenMmICXQr7wvsdMCHKv/b44KBVlT4JC2fSNAdoTwSJCXek3NLs9w7kFW+LquoxyYy9Sj2O+0mN67Tm+gZZZyKluX9ICfew0t20dcHBNxPiKf2bYlJc+A//s2m8/YHmw1aH/bOaW1boDaJIZhr/aEYxm6UpLbecY4+gMW09+uoii520Q7UrZkh6b2o+eGpoA5OJXBKqIVrXN3iLRao857tShZWIokskxeJfsOtfvbSAtTcfS8goU=
+  on:
+    tags: true
+    repo: actano/karma-selenium-launcher
+    node: '8'
